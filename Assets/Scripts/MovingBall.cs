@@ -62,8 +62,6 @@ public class MovingBall : MonoBehaviour
         }
 
         body.velocity = angle * speed;
-        Debug.LogWarning(angle * speed);
-        Debug.LogWarning("Angle: " + angle + " Velocity: " + body.velocity);
     }
 
 
@@ -72,7 +70,5 @@ public class MovingBall : MonoBehaviour
         transform.position = position;
         gameObject.SetActive(true);
         SetInitialVelocity(direction);
-
-
     }
 }
