@@ -23,6 +23,9 @@ public class PlayerMovement : Movement
 
     Vector2 lastNonZeroValue = new Vector2();
 
+    [SerializeField]
+    Rigidbody2D body;
+
     public PlayerDirection Direction
     {
         get
@@ -45,7 +48,7 @@ public class PlayerMovement : Movement
 
     private void Update()
     {
-        Move(movement);
+        Move(movement, body);
     }
 
     PlayerDirection GetCurrentDirection()

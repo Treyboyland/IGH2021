@@ -16,15 +16,17 @@ public class MovingBall : MonoBehaviour
     [SerializeField]
     Vector3Event onStopLocation;
 
+    Player launchedPlayer;
+
     // Update is called once per frame
     void Update()
     {
         if (body.velocity.sqrMagnitude < magnitudeThreshold)
         {
             Debug.LogWarning("Stopping object");
-            onStopLocation.Value = transform.position;
-            onStopLocation.Invoke();
-            gameObject.SetActive(false);
+            //onStopLocation.Value = transform.position;
+            //onStopLocation.Invoke();
+            //gameObject.SetActive(false);
         }
     }
 
@@ -61,14 +63,26 @@ public class MovingBall : MonoBehaviour
                 break;
         }
 
-        body.velocity = angle * speed;
+        body.velocity = (angle.normalized * speed) + launchedPlayer.Body.velocity;
     }
 
 
-    public void ThrowBall(PlayerMovement.PlayerDirection direction, Vector3 position)
+    public void ThrowBall(PlayerMovement.PlayerDirection direction, Player player)
     {
-        transform.position = position;
+        launchedPlayer = player;
+        transform.position = player.transform.position;
         gameObject.SetActive(true);
         SetInitialVelocity(direction);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        var player = other.GetComponent<Player>();
+        if (player != null && player != launchedPlayer)
+        {
+            //Damage other player
+            Debug.LogWarning("Hit");
+            gameObject.SetActive(false);
+        }
     }
 }

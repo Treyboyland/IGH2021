@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cube Glow Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Standalone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 12
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 4bb0f2b10ce0c7f428dd0ae87686212f, type: 3}
+    - {fileID: 2800000, guid: 3da5543b667ed954885e961638f1fc9e, type: 3}
+    - {fileID: 2800000, guid: 12df6b58eb43fe246b88cf27374219d6, type: 3}
+    - {fileID: 2800000, guid: 017ff6377a2528748ac14dd06abd198f, type: 3}
+    - {fileID: 2800000, guid: d2d8f5951a9979d49a2e0a533c70b02c, type: 3}
+    - {fileID: 2800000, guid: 2d9e7e89c02f0f04884d09ae11f2c125, type: 3}
+    - {fileID: 2800000, guid: 9766b067f17550c4f92f09d2731e1e33, type: 3}
+    - {fileID: 2800000, guid: 2ca51aba71dc21a42a36e6f731116dba, type: 3}
+    - {fileID: 2800000, guid: 340ea1cf46e43974780395a24c7124ef, type: 3}
+    - {fileID: 2800000, guid: c37708ea0e5c4f648aa010b6fd86c3af, type: 3}
+    - {fileID: 2800000, guid: 95b018ce68398d84583127bf187133e9, type: 3}
+    - {fileID: 2800000, guid: 225f1e26f1b70aa4093d8219306904fa, type: 3}
+    - {fileID: 2800000, guid: 644972fb583cd1e4aa3538e4fc67f5eb, type: 3}
+    - {fileID: 2800000, guid: 0d9340e9ef077644e9b48911964bd7fa, type: 3}
+    - {fileID: 2800000, guid: fa56462b2cf846f43b3889d88295c295, type: 3}
+    totalSpriteSurfaceArea: 17496000
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4bb0f2b10ce0c7f428dd0ae87686212f, type: 3}
+  - {fileID: 21300000, guid: d2d8f5951a9979d49a2e0a533c70b02c, type: 3}
+  - {fileID: 21300000, guid: 225f1e26f1b70aa4093d8219306904fa, type: 3}
+  - {fileID: 21300000, guid: 017ff6377a2528748ac14dd06abd198f, type: 3}
+  - {fileID: 21300000, guid: 9766b067f17550c4f92f09d2731e1e33, type: 3}
+  - {fileID: 21300000, guid: 12df6b58eb43fe246b88cf27374219d6, type: 3}
+  - {fileID: 21300000, guid: 2d9e7e89c02f0f04884d09ae11f2c125, type: 3}
+  - {fileID: 21300000, guid: 0d9340e9ef077644e9b48911964bd7fa, type: 3}
+  - {fileID: 21300000, guid: 2ca51aba71dc21a42a36e6f731116dba, type: 3}
+  - {fileID: 21300000, guid: c37708ea0e5c4f648aa010b6fd86c3af, type: 3}
+  - {fileID: 21300000, guid: fa56462b2cf846f43b3889d88295c295, type: 3}
+  - {fileID: 21300000, guid: 3da5543b667ed954885e961638f1fc9e, type: 3}
+  - {fileID: 21300000, guid: 644972fb583cd1e4aa3538e4fc67f5eb, type: 3}
+  - {fileID: 21300000, guid: 95b018ce68398d84583127bf187133e9, type: 3}
+  - {fileID: 21300000, guid: 340ea1cf46e43974780395a24c7124ef, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - CUBE GLOW 15
+  - CUBE GLOW 04
+  - CUBE GLOW 11
+  - CUBE GLOW 03
+  - CUBE GLOW 06
+  - CUBE GLOW 02
+  - CUBE GLOW 05
+  - CUBE GLOW 13
+  - CUBE GLOW 07
+  - CUBE GLOW 09
+  - CUBE GLOW 14
+  - CUBE GLOW 01
+  - CUBE GLOW 12
+  - CUBE GLOW 10
+  - CUBE GLOW 08
+  m_RenderDataMap: {}
+  m_Tag: Cube Glow Atlas
+  m_IsVariant: 0

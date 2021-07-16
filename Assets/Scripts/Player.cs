@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     /// <value></value>
     public bool HasBall { get { return hasBall; } set { hasBall = value; } }
 
+    [SerializeField]
+    Rigidbody2D body;
+
+    public Rigidbody2D Body { get { return body; } }
+
     // Start is called before the first frame update
     void Start()
     {

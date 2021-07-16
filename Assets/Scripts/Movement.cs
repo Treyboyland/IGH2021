@@ -43,4 +43,13 @@ public class Movement : MonoBehaviour
         delta.y *= speed * Time.deltaTime;
         transform.position += delta;
     }
+
+    public void Move(Vector2 inputAxes, Rigidbody2D body)
+    {
+        //Debug.LogWarning("Axes: " + inputAxes);
+        Vector3 delta = new Vector3(inputAxes.x, inputAxes.y);
+        delta.x *= speed * Time.deltaTime;
+        delta.y *= speed * Time.deltaTime;
+        body.AddForce(delta, ForceMode2D.Impulse);
+    }
 }

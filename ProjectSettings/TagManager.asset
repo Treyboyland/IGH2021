@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Balls
+  - Player
+  - Wall
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1137140939
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3420396655
+    locked: 0
+  - name: Ball
+    uniqueID: 319785497
+    locked: 0
+  - name: Wall
+    uniqueID: 3734469641
     locked: 0
