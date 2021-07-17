@@ -14,22 +14,20 @@ public class MovingBall : MonoBehaviour
     float speed;
 
     [SerializeField]
-    Vector3Event onStopLocation;
+    Vector3Event onDestroyedLocation;
+
+    [SerializeField]
+    int maxBounces;
+
+    int numBounces;
 
     Player launchedPlayer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (body.velocity.sqrMagnitude < magnitudeThreshold)
-        {
-            Debug.LogWarning("Stopping object");
-            //onStopLocation.Value = transform.position;
-            //onStopLocation.Invoke();
-            //gameObject.SetActive(false);
-        }
-    }
-
+    /// <summary>
+    /// Player that threw the ball
+    /// </summary>
+    /// <value></value>
+    public Player LaunchedPlayer { get { return launchedPlayer; } }
 
     public void SetInitialVelocity(PlayerMovement.PlayerDirection direction)
     {
@@ -75,6 +73,11 @@ public class MovingBall : MonoBehaviour
         SetInitialVelocity(direction);
     }
 
+    private void OnEnable()
+    {
+        numBounces = 0;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         var player = other.GetComponent<Player>();
@@ -82,7 +85,33 @@ public class MovingBall : MonoBehaviour
         {
             //Damage other player
             Debug.LogWarning("Hit");
-            gameObject.SetActive(false);
+            DestroyBall();
+        }
+    }
+
+    public void DestroyBall()
+    {
+        onDestroyedLocation.Value = transform.position;
+        onDestroyedLocation.Invoke();
+        gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        var otherBall = other.gameObject.GetComponent<MovingBall>();
+        var wall = other.gameObject.GetComponent<Wall>();
+        if (wall != null)
+        {
+            numBounces++;
+            if (numBounces > maxBounces)
+            {
+                DestroyBall();
+            }
+        }
+        else if (otherBall != null && launchedPlayer != otherBall.LaunchedPlayer)
+        {
+            otherBall.DestroyBall();
+            DestroyBall();
         }
     }
 }

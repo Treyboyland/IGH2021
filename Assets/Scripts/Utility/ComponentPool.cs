@@ -47,6 +47,19 @@ public class ComponentPool<T> : MonoBehaviour where T : Component
         return CreateObject();
     }
 
+    public void GetAndActivateObject()
+    {
+        var obj = GetObject();
+        obj.gameObject.SetActive(true);
+    }
+
+    public void GetAndActivateObject(Vector3 position)
+    {
+        var obj = GetObject();
+        obj.transform.position = position;
+        obj.gameObject.SetActive(true);
+    }
+
     public void DisableAll()
     {
         foreach (var obj in pool)

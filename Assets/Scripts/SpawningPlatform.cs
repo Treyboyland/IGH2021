@@ -10,6 +10,11 @@ public class SpawningPlatform : MonoBehaviour
     [SerializeField]
     Vector3 offset;
 
+    [SerializeField]
+    Vector3 endScale;
+
+    public Vector3 EndScale { get { return endScale; } }
+
     float elapsed = 0;
 
     float currentSpawnTime;
@@ -18,10 +23,7 @@ public class SpawningPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (currentBall != null && !currentBall.gameObject.activeInHierarchy)
-        {
-            currentBall = null;
-        }
+        DisableUsedBall();
 
         elapsed = currentBall == null ? elapsed + Time.deltaTime : elapsed;
         if (currentBall == null && elapsed >= currentSpawnTime)
@@ -30,11 +32,29 @@ public class SpawningPlatform : MonoBehaviour
         }
     }
 
+    void DisableUsedBall()
+    {
+        if (currentBall != null && !currentBall.gameObject.activeInHierarchy)
+        {
+            currentBall = null;
+        }
+    }
+
     private void OnEnable()
     {
+        DisableUsedBall();
         if (gameObject.activeInHierarchy)
         {
             SpawnBall();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (currentBall != null && currentBall.gameObject.activeInHierarchy)
+        {
+            currentBall.gameObject.SetActive(false);
+            DisableUsedBall();
         }
     }
 
@@ -43,7 +63,7 @@ public class SpawningPlatform : MonoBehaviour
         elapsed = 0;
 
         var ball = BallPool.Pool.GetObject();
-        ball.transform.position = transform.position + offset;
+        ball.transform.position = transform.position + transform.up * offset.y;
         ball.gameObject.SetActive(true);
         currentBall = ball;
 

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1112627748077283485}
   - component: {fileID: 1112627748077283459}
   - component: {fileID: 1112627748077283456}
-  - component: {fileID: 7914811684091957652}
   - component: {fileID: 703179356790362490}
   m_Layer: 7
   m_Name: Player
@@ -52,6 +51,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onScoreChanged: {fileID: 0}
   score: 0
+  onLivesChanged: {fileID: 0}
+  onPlayerDamaged: {fileID: 0}
+  onPlayerGainedLife: {fileID: 0}
+  lives: 0
   hasBall: 0
   body: {fileID: 1112627748077283459}
 --- !u!114 &3315946279360930742
@@ -172,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a361bf4ee3ce97d4b8533cf417b1f692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 5
   body: {fileID: 1112627748077283459}
 --- !u!212 &1112627748077283485
 SpriteRenderer:
@@ -272,20 +275,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7914811684091957652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112627748077283487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 256f31ee62aa1554f90bb91a1e40d770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1112627748077283484}
-  pointsPerSecond: 1
 --- !u!114 &703179356790362490
 MonoBehaviour:
   m_ObjectHideFlags: 0

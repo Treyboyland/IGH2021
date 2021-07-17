@@ -168,8 +168,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.5
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -284,8 +284,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.25
+      scalar: 0.2
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4870,7 +4870,8 @@ MonoBehaviour:
   body: {fileID: 4912513721506386}
   magnitudeThreshold: 0.1
   speed: 5
-  onStopLocation: {fileID: 11400000, guid: 6587443f6d12e4e46bf113eb043fd227, type: 2}
+  onDestroyedLocation: {fileID: 11400000, guid: a8fb39fb66704d24c9df073f294d93e2, type: 2}
+  maxBounces: 10
 --- !u!212 &4912513721506413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4935,8 +4936,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.05
-  m_AngularDrag: 0.05
+  m_LinearDrag: 0
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: ed6ca57fead612648a7bbf5c9e5ab099, type: 2}
   m_Interpolate: 0

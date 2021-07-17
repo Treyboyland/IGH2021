@@ -16,6 +16,43 @@ public class Player : MonoBehaviour
     /// </summary>
     /// <value></value>
     public int Score { get { return score; } set { score = value; onScoreChanged.Value = score; onScoreChanged.Invoke(); } }
+
+    [SerializeField]
+    GameEventGenericSO<int> onLivesChanged;
+
+    [SerializeField]
+    GameEventSO onPlayerDamaged;
+
+    [SerializeField]
+    GameEventSO onPlayerGainedLife;
+
+    [Tooltip("Number of lives the player has")]
+    [SerializeField]
+    int lives;
+
+    /// <summary>
+    /// Number of lives the player has
+    /// </summary>
+    /// <value></value>
+    public int Lives
+    {
+        get { return lives; }
+        set
+        {
+            if (lives < value)
+            {
+                onPlayerGainedLife.Invoke();
+            }
+            else if (lives > value)
+            {
+                onPlayerDamaged.Invoke();
+            }
+            lives = value;
+            onLivesChanged.Value = lives;
+            onLivesChanged.Invoke();
+        }
+    }
+
     [Tooltip("True if the player has the ball")]
     [SerializeField]
     bool hasBall;
@@ -31,15 +68,12 @@ public class Player : MonoBehaviour
 
     public Rigidbody2D Body { get { return body; } }
 
-    // Start is called before the first frame update
-    void Start()
+    public void DamagePlayer()
     {
+        Lives--;
+        if (lives == 0)
+        {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        }
     }
 }
