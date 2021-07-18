@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BallDestructionSoundSettings
   m_EditorClassIdentifier: 
   pitchRange: {x: 0.9, y: 1.1}
-  volumeRange: {x: 0.7, y: 0.8}
+  volumeRange: {x: 0.5, y: 0.6}
   clips:
   - {fileID: 8300000, guid: 04051b3d499effe43a57a00844370594, type: 3}
   - {fileID: 8300000, guid: 5a93dbd2685d49f429b84c3b0f1cf9ae, type: 3}

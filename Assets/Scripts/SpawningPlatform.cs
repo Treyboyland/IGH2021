@@ -25,6 +25,8 @@ public class SpawningPlatform : MonoBehaviour
 
     Ball currentBall;
 
+    public Ball CurrentBall { get { return currentBall; } }
+
     private void Update()
     {
         DisableUsedBall();
@@ -64,13 +66,17 @@ public class SpawningPlatform : MonoBehaviour
         }
     }
 
-    void SpawnBall()
+    public void SpawnBall()
     {
         elapsed = 0;
 
         var ball = BallPool.Pool.GetObject();
-        ball.transform.position = transform.position + transform.up * offset.y;
-        ball.gameObject.SetActive(true);
+        if (ball != null)
+        {
+            ball.transform.position = transform.position + transform.up * offset.y;
+            ball.gameObject.SetActive(true);
+        }
+
         currentBall = ball;
 
         currentSpawnTime = Random.Range(spawnTimes.x, spawnTimes.y);

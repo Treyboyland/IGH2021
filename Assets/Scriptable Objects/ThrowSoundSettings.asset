@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThrowSoundSettings
   m_EditorClassIdentifier: 
   pitchRange: {x: 0.9, y: 1.05}
-  volumeRange: {x: 0.7, y: 0.9}
+  volumeRange: {x: 0.5, y: 0.6}
   clips:
   - {fileID: 8300000, guid: 3071c527f1eda3a45855d3cdce194bef, type: 3}
   - {fileID: 8300000, guid: d0cd3eefecaf4f245a12cedaea2ac536, type: 3}

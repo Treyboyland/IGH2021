@@ -10,7 +10,16 @@ public class ComponentPool<T> : MonoBehaviour where T : Component
     [SerializeField]
     protected int numToSpawn;
 
+    [SerializeField]
+    protected bool canGrow = true;
+
     protected List<T> pool = new List<T>();
+
+    /// <summary>
+    /// WARNING: Please don't modify this list
+    /// </summary>
+    /// <value></value>
+    public List<T> PoolObjects { get { return pool; } }
 
     protected virtual void Awake()
     {
@@ -24,6 +33,20 @@ public class ComponentPool<T> : MonoBehaviour where T : Component
         {
             CreateObject();
         }
+    }
+
+    public int GetNumActive()
+    {
+        int count = 0;
+        foreach (var obj in pool)
+        {
+            if (obj.gameObject.activeInHierarchy)
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     protected T CreateObject()
@@ -44,7 +67,7 @@ public class ComponentPool<T> : MonoBehaviour where T : Component
             }
         }
 
-        return CreateObject();
+        return canGrow ? CreateObject() : null;
     }
 
     public void GetAndActivateObject()

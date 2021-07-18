@@ -49,10 +49,6 @@ public class Cubewano : MonoBehaviour
     [SerializeField]
     List<AttackPattern> attackPatterns;
 
-
-
-    int attackIndex = 0;
-
     private void Start()
     {
         particle.gameObject.SetActive(false);
@@ -113,7 +109,7 @@ public class Cubewano : MonoBehaviour
             {
                 yield return null;
             }
-            attackStage++;
+            attackStage = attackStage + 1 <= attackPatterns.Count ? attackStage + 1 : attackPatterns.Count;
         }
     }
 }

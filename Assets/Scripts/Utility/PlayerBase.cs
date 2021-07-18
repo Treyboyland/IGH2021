@@ -16,8 +16,11 @@ public class PlayerBase : MonoBehaviour
 
     public UnityEvent OnBallDeposited;
 
+    public UnityEvent OnBaseDamaged;
+
     public void DamageBase()
     {
+        OnBaseDamaged.Invoke();
         health--;
         if (health == 0)
         {
