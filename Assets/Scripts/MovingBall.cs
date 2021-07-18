@@ -84,7 +84,8 @@ public class MovingBall : MonoBehaviour
         if (player != null && player != launchedPlayer)
         {
             //Damage other player
-            Debug.LogWarning("Hit");
+            //Debug.LogWarning("Hit");
+            player.DamagePlayer();
             DestroyBall();
         }
     }
@@ -100,6 +101,7 @@ public class MovingBall : MonoBehaviour
     {
         var otherBall = other.gameObject.GetComponent<MovingBall>();
         var wall = other.gameObject.GetComponent<Wall>();
+        var playerBase = other.gameObject.GetComponent<PlayerBase>();
         if (wall != null)
         {
             numBounces++;

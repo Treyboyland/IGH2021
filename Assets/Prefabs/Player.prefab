@@ -49,12 +49,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6866726539d9d74c97a4bb813bf64ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayerDeath: {fileID: 11400000, guid: 0aefd0bbfa379644f906f5da1a5716fd, type: 2}
   onScoreChanged: {fileID: 0}
   score: 0
+  isInvincible: 0
   onLivesChanged: {fileID: 0}
-  onPlayerDamaged: {fileID: 0}
-  onPlayerGainedLife: {fileID: 0}
-  lives: 0
+  onPlayerDamaged: {fileID: 11400000, guid: de8655d69de232146b399681c46e2069, type: 2}
+  onPlayerGainedLife: {fileID: 11400000, guid: 72eb847172554da4789c8f7fb8754308, type: 2}
+  lives: 4
   hasBall: 0
   body: {fileID: 1112627748077283459}
 --- !u!114 &3315946279360930742

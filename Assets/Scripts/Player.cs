@@ -5,11 +5,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField]
+    PlayerEvent onPlayerDeath;
+
+    [SerializeField]
     GameEventGenericSO<int> onScoreChanged;
 
     [Tooltip("Player's current points")]
     [SerializeField]
     int score;
+
+    [Tooltip("True if the player cannot take damage")]
+    [SerializeField]
+    bool isInvincible;
+    public bool IsInvincible { get { return isInvincible; } }
 
     /// <summary>
     /// Player's current points
@@ -21,7 +29,7 @@ public class Player : MonoBehaviour
     GameEventGenericSO<int> onLivesChanged;
 
     [SerializeField]
-    GameEventSO onPlayerDamaged;
+    Vector3Event onPlayerDamaged;
 
     [SerializeField]
     GameEventSO onPlayerGainedLife;
@@ -29,6 +37,10 @@ public class Player : MonoBehaviour
     [Tooltip("Number of lives the player has")]
     [SerializeField]
     int lives;
+
+    [Tooltip("Max Number of lives able to be obtained")]
+    [SerializeField]
+    int maxLives;
 
     /// <summary>
     /// Number of lives the player has
@@ -39,12 +51,17 @@ public class Player : MonoBehaviour
         get { return lives; }
         set
         {
+            if (value > maxLives)
+            {
+                value = maxLives;
+            }
             if (lives < value)
             {
                 onPlayerGainedLife.Invoke();
             }
             else if (lives > value)
             {
+                onPlayerDamaged.Value = transform.position;
                 onPlayerDamaged.Invoke();
             }
             lives = value;
@@ -70,10 +87,16 @@ public class Player : MonoBehaviour
 
     public void DamagePlayer()
     {
-        Lives--;
-        if (lives == 0)
+        if (isInvincible)
         {
-
+            return;
+        }
+        Lives--;
+        if (lives <= 0)
+        {
+            onPlayerDeath.Value = this;
+            onPlayerDeath.Invoke();
+            gameObject.SetActive(false);
         }
     }
 }

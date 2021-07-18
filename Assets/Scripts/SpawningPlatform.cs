@@ -13,6 +13,10 @@ public class SpawningPlatform : MonoBehaviour
     [SerializeField]
     Vector3 endScale;
 
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    float spawnProbability;
+
     public Vector3 EndScale { get { return endScale; } }
 
     float elapsed = 0;
@@ -43,7 +47,9 @@ public class SpawningPlatform : MonoBehaviour
     private void OnEnable()
     {
         DisableUsedBall();
-        if (gameObject.activeInHierarchy)
+        var probability = UnityEngine.Random.Range(0.0f, 1.0f);
+        currentSpawnTime = Random.Range(spawnTimes.x, spawnTimes.y);
+        if (gameObject.activeInHierarchy && probability < spawnProbability)
         {
             SpawnBall();
         }

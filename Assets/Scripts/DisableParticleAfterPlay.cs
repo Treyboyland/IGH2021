@@ -22,5 +22,7 @@ public class DisableParticleAfterPlay : MonoBehaviour
         {
             yield return null;
         }
+
+        gameObject.SetActive(false);
     }
 }
