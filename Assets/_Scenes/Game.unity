@@ -1955,7 +1955,7 @@ MonoBehaviour:
     SecondsToWait: 60
   - NumAttacks: 20
     SecondsToWait: 60
-  isBigMad: 1
+  isBigMad: 0
   IsEndGame: 0
   ShouldWait: 0
   IsWaiting: 0
