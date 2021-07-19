@@ -49,6 +49,19 @@ public class Cubewano : MonoBehaviour
     [SerializeField]
     List<AttackPattern> attackPatterns;
 
+    [SerializeField]
+    bool isBigMad;
+
+    public bool IsEndGame;
+
+    public bool ShouldWait = true;
+
+    public bool IsEnraged { get { return isBigMad || attackStage == attackPatterns.Count; } }
+
+    public bool IsWaiting = false;
+
+    int attackStage = 0;
+
     private void Start()
     {
         particle.gameObject.SetActive(false);
@@ -62,24 +75,72 @@ public class Cubewano : MonoBehaviour
         while (elapsed < secondsToWait)
         {
             elapsed += Time.deltaTime;
-            if (!appeared && secondsToWait - elapsed < 5)
+            if (!appeared && (secondsToWait - elapsed < 5) || IsEndGame)
             {
                 appearanceSound.Play();
                 appeared = true;
                 appearanceAnimator.SetTrigger("Appear");
+            }
+            if (IsEndGame)
+            {
+                yield break;
             }
             yield return null;
         }
 
     }
 
+    public IEnumerator WaitForDisappearance()
+    {
+        Debug.LogWarning(gameObject.name + " Waiting");
+        while (!appearanceAnimator.GetCurrentAnimatorStateInfo(0).IsName("Initial"))
+        {
+            yield return null;
+        }
+        Debug.LogWarning(gameObject.name + " Wait Done");
+    }
+
+    IEnumerator WaitThenDisappear()
+    {
+        IsWaiting = true;
+        while (ShouldWait)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(3.0f);
+        appearanceAnimator.SetTrigger("Shrink");
+        while (!appearanceAnimator.GetCurrentAnimatorStateInfo(0).IsName("Initial"))
+        {
+            yield return null;
+        }
+    }
+
+    public IEnumerator WaitUntilCubewanoWaiting()
+    {
+        while (!IsWaiting)
+        {
+            yield return null;
+        }
+    }
+
     IEnumerator AttackLoop()
     {
-        int attackStage = 0;
+
         while (true)
         {
+            if (isBigMad)
+            {
+                attackStage = attackPatterns.Count;
+            }
             var attack = attackStage < attackPatterns.Count ? attackPatterns[attackStage] : endAttack;
             yield return StartCoroutine(WaitToAppear(attack.SecondsToWait));
+
+            if (IsEndGame)
+            {
+                yield return new WaitForSeconds(5.0f);
+            }
+
             particle.gameObject.SetActive(true);
             pulseSound.Play();
             animator.SetTrigger(attackTrigger);
@@ -87,6 +148,12 @@ public class Cubewano : MonoBehaviour
             while (particle.gameObject.activeInHierarchy)
             {
                 yield return null;
+            }
+
+            if (IsEndGame)
+            {
+                yield return StartCoroutine(WaitThenDisappear());
+                yield break;
             }
 
             var directions = new List<PlayerMovement.PlayerDirection>(){ PlayerMovement.PlayerDirection.NORTH_WEST, PlayerMovement.PlayerDirection.WEST,
@@ -103,9 +170,13 @@ public class Cubewano : MonoBehaviour
                 yield return null;
             }
             animator.SetTrigger(normalTrigger);
-            yield return new WaitForSeconds(7.0f);
+            if (!IsEnraged)
+            {
+                yield return new WaitForSeconds(7.0f);
+            }
+
             appearanceAnimator.SetTrigger("Shrink");
-            while (appearanceAnimator.GetCurrentAnimatorStateInfo(0).IsName("Initial"))
+            while (!appearanceAnimator.GetCurrentAnimatorStateInfo(0).IsName("Initial"))
             {
                 yield return null;
             }

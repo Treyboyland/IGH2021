@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     [Tooltip("True if the player cannot take damage")]
     [SerializeField]
     bool isInvincible;
-    public bool IsInvincible { get { return isInvincible; } }
+    public bool IsInvincible { get { return isInvincible; } set { isInvincible = value; } }
 
     /// <summary>
     /// Player's current points

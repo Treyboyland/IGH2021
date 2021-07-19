@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d2af20dc0f91345a47f4c6c01b1bab, type: 3}
+  m_Name: Both Die Ending
+  m_EditorClassIdentifier: 
+  title: Mutually Assured Destruction
+  endText: 'Not satisfied dying by the Omni-Cube''s wrath, the remaining Cubians
+    fought until their last, eradicating themselves in a volley of Cubetanium. Polygia
+    was finally at peace, a barren wasteland due to the countless battles.
+
+
+    CUBEWANO,
+    dissatified with the state of the planet, reduced it to atoms in a volley of
+    Cubetanium, finishing the work the Cubians had started.
+
+
+    But is this all
+    that there is to the story? Can Polygia be restored from the brink of destruction?'

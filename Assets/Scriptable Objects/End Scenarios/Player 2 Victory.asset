@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7d2af20dc0f91345a47f4c6c01b1bab, type: 3}
+  m_Name: Player 2 Victory
+  m_EditorClassIdentifier: 
+  title: Player 2 Wins!
+  endText: 'Through your superior ability, you were able to defeat your opponent
+    as the world ended.
+
+
+    CUBEWANO, seeing the husk that remained of the world
+    after the war, saw fit to finish the destruction you started. The last thing
+    you remember is a flash of light and a rain of Cubetanium as Polygia was reduced
+    to atoms.
+
+
+    But is this all that there is to the story? Can Polygia be restored
+    from the brink of destruction?'
